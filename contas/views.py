@@ -8,3 +8,6 @@ def exemplo(request):
     now = datetime.datetime.now()
     html = '<h1>Exemplo de saida %s. </h1>' % now
     return HttpResponse(html)
+
+def home(request):
+    return render(request, 'contas/home.html')
