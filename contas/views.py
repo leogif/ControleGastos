@@ -9,5 +9,6 @@ def exemplo(request):
     html = '<h1>Exemplo de saida %s. </h1>' % now
     return HttpResponse(html)
 
+# Função principal real da aplicação!
 def home(request):
     return render(request, 'contas/home.html')
