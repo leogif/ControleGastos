@@ -9,6 +9,9 @@ def exemplo(request):
     html = '<h1>Exemplo de saida %s. </h1>' % now
     return HttpResponse(html)
 
-# Função principal real da aplicação!
+# Função para exemplos da aplicação!
 def home(request):
-    return render(request, 'contas/home.html')
+    now = datetime.datetime.now()
+    transacao = ['transacao 1', 'transacao 2', 'transacao 3']
+    dic = { 'now':now , 'transacao':transacao }
+    return render(request, 'contas/home.html', dic)
