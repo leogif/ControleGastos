@@ -1,0 +1,22 @@
+{% extends "baseform.html" %}
+{% load staticfiles %}
+{% block body %}
+
+    <form method="post" class="form-signin">
+      {% csrf_token %}
+
+      <h2 class="form-heading">Gestão de Contas</h2>
+      <hr>
+
+      {{ form.as_p }}
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+
+      {% if transacao %}
+        <a href="{% url 'url_delete' transacao.id %}" class="btn btn-lg btn-primary btn-block">
+          Deletar Registro
+        </a>
+      {% endif %}
+    </form>
+
+{% endblock %}

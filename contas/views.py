@@ -26,7 +26,7 @@ def home(request):
 def listagem(request):
     data = {}
     data['transacoes'] = Transacaoes.objects.all()
-    return render(request, 'contas/listagem.html', data)
+    return render(request, 'listagem.html', data)
 
 # Função que monta e ativa a validação de nosso formulario
 # Cria uma instancia do nosso form no template e salva os dados no modelo
@@ -40,7 +40,7 @@ def novatransacao(request):
         return redirect('url_listagem')
     # envia um dicionario para o template com os campos do formulario
     data['form'] = form
-    return render(request, 'contas/form.html', data)
+    return render(request, 'form.html', data)
 
 # Função que realiza a atualização de itens no modelo com base em formulario
 # Recebe o ID de um item através de sua Primary Key (pk)
@@ -56,7 +56,7 @@ def update(request, pk):
     # envia um dicionario para o template com os dados do formulario
     data['form'] = form
     data['transacao'] = transacao
-    return render(request, 'contas/form.html', data)
+    return render(request, 'form.html', data)
 
 # Função que executa a exclusão de um registro no modelo
 # Verifica no template se o registro já existe. Caso exista executa sua exclusão
