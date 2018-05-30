@@ -42,3 +42,18 @@ def novatransacao(request):
     # envia um dicionario para o template com os campos do formulario
     data['form'] = form
     return render(request, 'contas/form.html', data)
+
+# Função que realiza a atualização de itens no modelo com base em formulario
+# Recebe o ID de um item através de sua Primary Key (pk)
+# Cria um formulario preenchido com os valores presentes no modelo refrente
+def update(request, pk):
+    transacao = Transacaoes.objects.get(pk=pk)
+    form = TransacaoForm(request.POST or None, instance=transacao)
+    data = {}
+    # verifica se o dados estão validos e salva no banco retornando a listagem
+    if form.is_valid():
+        form.save()
+        return redirect('url_listagem')
+    # envia um dicionario para o template com os dados do formulario
+    data['form'] = form
+    return render(request, 'contas/form.html', data)

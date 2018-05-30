@@ -9,7 +9,11 @@
     <h2>Bem vindo ao Gestão de Contas</h2>
     <ul>
       {% for cont in transacoes %}
-        <li> {{ cont.descricao }} - {{ cont.valor }} </li>
+        <li>
+          <a href="{% url 'url_update' cont.id %}">
+            {{ cont.descricao }} - {{ cont.valor }}
+          </a>
+        </li>
       {% endfor %}
     </ul>
 
