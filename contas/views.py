@@ -30,15 +30,14 @@ def listagem(request):
 
 # Função que monta e ativa a validação de nosso formulario
 # Cria uma instancia do nosso form no template e salva os dados no modelo
+# Formulario gerado automaticamente e será reaproveitado na função atualizar
 def novatransacao(request):
     data = {}
     form = TransacaoForm(request.POST or None)
-
     # verifica se o dados estão validos e salva no banco retornando a listagem
     if form.is_valid():
         form.save()
         return redirect('url_listagem')
-
     # envia um dicionario para o template com os campos do formulario
     data['form'] = form
     return render(request, 'contas/form.html', data)
@@ -56,4 +55,12 @@ def update(request, pk):
         return redirect('url_listagem')
     # envia um dicionario para o template com os dados do formulario
     data['form'] = form
+    data['transacao'] = transacao
     return render(request, 'contas/form.html', data)
+
+# Função que executa a exclusão de um registro no modelo
+# Verifica no template se o registro já existe. Caso exista executa sua exclusão
+def delete(request, pk):
+    transacao = Transacaoes.objects.get(pk=pk)
+    transacao.delete()
+    return redirect('url_listagem')
