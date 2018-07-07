@@ -1,4 +1,4 @@
-# ControleGastos
+# Controle - Gastos (Completo)
 ![Versão do Python](https://img.shields.io/badge/Python-3.6.5-red.svg)
 ![Versão do Django](https://img.shields.io/badge/Django-2.0.5-orange.svg)
 ![Projeto de Estudos](https://img.shields.io/badge/Projeto-Estudos-ff69b4.svg)
